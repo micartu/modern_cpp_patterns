@@ -1,5 +1,6 @@
 #include "composite.h"
 #include "creational.h"
+#include "decorator.h"
 #include "solid.h"
 #include <CLI/CLI.hpp>
 #include <algorithm>
@@ -38,5 +39,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "solid")) { run_solid_examples(); }
   if (canExecute(testcase, "creational")) { run_creational_examples(); }
   if (canExecute(testcase, "composite")) { run_composite_examples(); }
+  if (canExecute(testcase, "decorator")) { run_decorator_examples(); }
   return 0;
 }
