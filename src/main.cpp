@@ -1,6 +1,7 @@
 #include "composite.h"
 #include "creational.h"
 #include "decorator.h"
+#include "flyweight.h"
 #include "solid.h"
 #include <CLI/CLI.hpp>
 #include <algorithm>
@@ -24,7 +25,8 @@ int main(int argc, const char **argv)
   CLI::App app{ "solid principals tester" };
   std::string testcase = kAllCases;
   bool showVersion = false;
-  app.add_option("-t,--test-case", testcase, "specific test case to be runned [all]");
+  app.add_option(
+    "-t,--test-case", testcase, "specific test case to be runned [all]");
 
   app.add_flag_function(
     "-V,--version",
@@ -40,5 +42,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "creational")) { run_creational_examples(); }
   if (canExecute(testcase, "composite")) { run_composite_examples(); }
   if (canExecute(testcase, "decorator")) { run_decorator_examples(); }
+  if (canExecute(testcase, "flyweight")) { run_flyweight_examples(); }
   return 0;
 }
