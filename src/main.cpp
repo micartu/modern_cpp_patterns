@@ -2,6 +2,7 @@
 #include "creational.h"
 #include "decorator.h"
 #include "flyweight.h"
+#include "iter.h"
 #include "solid.h"
 #include <CLI/CLI.hpp>
 #include <algorithm>
@@ -43,5 +44,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "composite")) { run_composite_examples(); }
   if (canExecute(testcase, "decorator")) { run_decorator_examples(); }
   if (canExecute(testcase, "flyweight")) { run_flyweight_examples(); }
+  if (canExecute(testcase, "iterator")) { run_iterator_examples(); }
   return 0;
 }
