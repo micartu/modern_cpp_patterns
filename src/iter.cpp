@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+#include "recursive_generator.h"
+
 template<typename T> struct BinaryTree;
 
 template<typename T> struct Node
@@ -92,6 +94,22 @@ template<typename T> struct BinaryTree
     iterator begin() { return tree.begin(); }
     iterator end() { return tree.end(); }
   } pre_order { *this };
+
+  recursive_generator<Node<T> *> post_order()
+  {
+    return post_order_impl(root);
+  }
+
+  private:
+    recursive_generator<Node<T> *> post_order_impl(Node<T> *node)
+    {
+      if (node) {
+        for (auto x : post_order_impl(node->left)) co_yield x;
+
+        for (auto y : post_order_impl(node->right)) co_yield y;
+        co_yield node;
+      }
+    }
 };
 
 
@@ -114,4 +132,8 @@ void run_iterator_examples()
   for (const auto& it: family.pre_order) {
     std::cout << it.value << "\n";
   }
+
+  std::cout << "same with coroutines:\n";
+
+  for (auto it : family.post_order()) { std::cout << it->value << "\n"; }
 }
