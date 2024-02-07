@@ -6,6 +6,7 @@
 #include "mediator.h"
 #include "iter.h"
 #include "solid.h"
+#include "memento.h"
 #include <CLI/CLI.hpp>
 #include <algorithm>
 #include <cstdlib>
@@ -49,5 +50,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "iterator")) { run_iterator_examples(); }
   if (canExecute(testcase, "mediator")) { run_mediator_examples(); }
   if (canExecute(testcase, "cor")) { run_cor_examples(); }
+  if (canExecute(testcase, "memento")) { run_memento_examples(); }
   return 0;
 }
