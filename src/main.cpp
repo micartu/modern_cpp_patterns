@@ -1,5 +1,6 @@
 #include "composite.h"
 #include "creational.h"
+#include "chain_of_resp.h"
 #include "decorator.h"
 #include "flyweight.h"
 #include "mediator.h"
@@ -47,5 +48,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "flyweight")) { run_flyweight_examples(); }
   if (canExecute(testcase, "iterator")) { run_iterator_examples(); }
   if (canExecute(testcase, "mediator")) { run_mediator_examples(); }
+  if (canExecute(testcase, "cor")) { run_cor_examples(); }
   return 0;
 }
