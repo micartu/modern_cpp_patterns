@@ -2,6 +2,7 @@
 #include "creational.h"
 #include "decorator.h"
 #include "flyweight.h"
+#include "mediator.h"
 #include "iter.h"
 #include "solid.h"
 #include <CLI/CLI.hpp>
@@ -45,5 +46,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "decorator")) { run_decorator_examples(); }
   if (canExecute(testcase, "flyweight")) { run_flyweight_examples(); }
   if (canExecute(testcase, "iterator")) { run_iterator_examples(); }
+  if (canExecute(testcase, "mediator")) { run_mediator_examples(); }
   return 0;
 }

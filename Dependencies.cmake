@@ -36,4 +36,17 @@ function(patterns_setup_dependencies)
   #  cpmaddpackage("gh:boostorg/boost#boost-1.81.0")
   #endif()
 
+  # instead try to load it
+  set(BOOST_SUBVER "84")
+  set(BOOST_CMAKE_SCRIPT_PATH contrib/subset-boost/stage/lib/cmake/Boost-1.${BOOST_SUBVER}.0/BoostConfig.cmake)
+  set(BOOST_CMAKE_SCRIPT_ABS_PATH "${CMAKE_SOURCE_DIR}/${BOOST_CMAKE_SCRIPT_PATH}")
+  if (NOT "${BOOST_CMAKE_SCRIPT_ABS_PATH}")
+    execute_process(
+      COMMAND ${CMAKE_SOURCE_DIR}/scripts/download_subboost.sh "${BOOST_CMAKE_SCRIPT_ABS_PATH}" ${BOOST_SUBVER}
+      WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    )
+  endif()
+
+  include_directories(contrib/subset-boost)
+  include(${BOOST_CMAKE_SCRIPT_PATH})
 endfunction()
