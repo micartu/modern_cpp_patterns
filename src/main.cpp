@@ -3,6 +3,7 @@
 #include "chain_of_resp.h"
 #include "decorator.h"
 #include "flyweight.h"
+#include "bflyweight.h"
 #include "mediator.h"
 #include "iter.h"
 #include "solid.h"
@@ -51,5 +52,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "mediator")) { run_mediator_examples(); }
   if (canExecute(testcase, "cor")) { run_cor_examples(); }
   if (canExecute(testcase, "memento")) { run_memento_examples(); }
+  if (canExecute(testcase, "bflyweight")) { run_bflyweight_examples(); }
   return 0;
 }
