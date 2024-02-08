@@ -10,8 +10,12 @@ BOOST_FILE_ARCH=${BOOST_DIR}.tar.gz
 DOWNLOAD_URL=https://boostorg.jfrog.io/artifactory/main/release/1.${BOOST_SUBVER}.0/source/${BOOST_FILE_ARCH}
 
 if ! [ -d ${WHERE_TO_PLACE} ]; then
-    [ -f ${WHOLE_BOOST}/${BOOST_FILE_ARCH} ] || wget ${DOWNLOAD_URL} -P ${WHOLE_BOOST}
-    [ -d ${WHOLE_BOOST}/${BOOST_DIR} ] || tar -xvf ${WHOLE_BOOST}/${BOOST_FILE_ARCH} -C ${WHOLE_BOOST}
+    BOOST_EXTRACTED=${WHOLE_BOOST}/${BOOST_DIR}
+    if ! [ -d ${BOOST_EXTRACTED} ]; then
+        BOOST_ARCH=${WHOLE_BOOST}/${BOOST_FILE_ARCH}
+        [ -f ${BOOST_ARCH} ] || wget ${DOWNLOAD_URL} -P ${WHOLE_BOOST}
+        tar -xvf ${BOOST_ARCH} -C ${WHOLE_BOOST}
+    fi
 fi
 
 # check if the needed cmake file exists
