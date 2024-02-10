@@ -5,6 +5,7 @@
 #include "flyweight.h"
 #include "bflyweight.h"
 #include "mediator.h"
+#include "visitor.h"
 #include "iter.h"
 #include "solid.h"
 #include "memento.h"
@@ -53,5 +54,6 @@ int main(int argc, const char **argv)
   if (canExecute(testcase, "cor")) { run_cor_examples(); }
   if (canExecute(testcase, "memento")) { run_memento_examples(); }
   if (canExecute(testcase, "bflyweight")) { run_bflyweight_examples(); }
+  if (canExecute(testcase, "visitor")) { run_visitor_examples(); }
   return 0;
 }
