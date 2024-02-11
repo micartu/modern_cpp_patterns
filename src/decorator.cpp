@@ -1,4 +1,5 @@
 #include "decorator.h"
+#include <functional>
 #include <iostream>
 #include <sstream>
 #include <string>

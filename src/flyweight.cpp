@@ -1,5 +1,4 @@
 #include "flyweight.h"
-#include <_types/_uint32_t.h>
 #include <iostream>
 #include <map>
 #include <ostream>
